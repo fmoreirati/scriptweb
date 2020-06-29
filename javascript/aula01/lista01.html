@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+</head>
+
+<body>
+    <p>1) Escreva um programa para ler um valor e escrever se é positivo ou negativo. Considere o valor zero como
+        neutro,
+        ou seja, se for digitado o valor zero, escrever a palavra zero.</p>
+
+    <input type="number" name="valor" id="num" value="0">
+    <button onclick="verfNumero()">OK</button>
+
+    <script>
+        function verfNumero() {
+            var valor = 0;
+            valor = document.getElementById("num");
+            if (valor.value > 0) {
+                alert("Positivo");
+            } else if (valor.value == 0) {
+                alert("Neutro ou Zero");
+            } else {
+                alert("Negativo");
+                console.log("Negativo");
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+    <!-- 2) Escreva um programa para ler o ano de nascimento de uma pessoa e escrever uma mensagem que diga se ela poderá ou
+    não votar este ano (não é necessário considerar o mês em que ela nasceu).
+
+    3) As maçãs custam R$ 0,30 cada se forem compradas menos do que uma dúzia, e R$ 0,25 se forem compradas pelo menos
+    doze. Escreva um programa que leia o número de maçãs compradas, calcule e escreva o valor total da compra.
+
+    4) Escreva um programa para ler 3 valores inteiros (considere que não serão lidos valores iguais) e escrevê-los em
+    ordem crescente.
+
+    5) Escreva um programa para ler o nome e as notas das duas avaliações de um aluno no semestre, calcular e escrever a
+    média semestral e a seguinte mensagem: PARABÉNS! Você foi aprovado! somente se o aluno foi aprovado (considere 6.0 a
+    média mínima para aprovação). E a mensagem Você foi REPROVADO! Estude mais... caso a média calculada seja menor que
+    6.0. -->
+</body>
+
+</html>

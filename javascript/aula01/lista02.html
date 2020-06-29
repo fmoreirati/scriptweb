@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+</head>
+
+<body>
+    <p>2) Escreva um programa para ler o ano de nascimento de uma pessoa e escrever uma mensagem que diga se ela poderá ou não votar este ano (não é necessário considerar o mês em que ela nasceu).</p>
+
+    <input type="number" id="anoNasc" value="1980">
+    <button onclick="verfData()">OK</button>
+<script>
+    function verfData(){
+        var dataNasc = 0;
+        dataNasc = document.getElementById("anoNasc").value;
+        var anoAtual = new Date().getFullYear();
+        var idade = anoAtual - dataNasc;
+        //console.log(anoAtual);
+        if ( idade >= 16 ){
+            alert("Pode Votar! Você tem " + idade + " anos.");
+        } else {
+            alert("NÃO pode votar! Você tem " + idade + " anos.");
+        }
+    }
+</script>
+
+
+
+
+
+
+<!--
+    3) As maçãs custam R$ 0,30 cada se forem compradas menos do que uma dúzia, e R$ 0,25 se forem compradas pelo menos
+    doze. Escreva um programa que leia o número de maçãs compradas, calcule e escreva o valor total da compra.
+
+    4) Escreva um programa para ler 3 valores inteiros (considere que não serão lidos valores iguais) e escrevê-los em
+    ordem crescente.
+
+    5) Escreva um programa para ler o nome e as notas das duas avaliações de um aluno no semestre, calcular e escrever a
+    média semestral e a seguinte mensagem: PARABÉNS! Você foi aprovado! somente se o aluno foi aprovado (considere 6.0 a
+    média mínima para aprovação). E a mensagem Você foi REPROVADO! Estude mais... caso a média calculada seja menor que
+    6.0. -->
+</body>
+
+</html>
