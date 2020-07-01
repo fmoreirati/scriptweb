@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h3> 4) Escreva um programa para ler 3 valores inteiros (considere que não serão lidos valores iguais) e escrevê-los em ordem crescente.
+    </h3>
+    <form>
+        <div class="form-group">
+            <input type="number" id="v1" value="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="number" id="v2" value="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="number" id="v2" value="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="" class="btn"> Ordenar </button>
+        </div>
+    </form>
+
+    <p id="saida"></p>
+
+    <script>
+        function ordenar(a, b, c){
+            let copo = 0;
+            if(a < b){
+                copo = a;
+                a = b;
+                b = copo;
+            }
+            if (c < b){
+                copo = c;
+                c = b;
+                b = copo;
+            }
+            saida("Em order crescente: " + a + " - " + b + " - " + c)
+        }
+        function saida(msg) {
+            document.getElementById("saida").innerHTML = msg;
+        }
+    </script>
+
+    
+
+<!--
+    5) Escreva um programa para ler o nome e as notas das duas avaliações de um aluno no semestre, calcular e escrever a
+    média semestral e a seguinte mensagem: PARABÉNS! Você foi aprovado! somente se o aluno foi aprovado (considere 6.0 a
+    média mínima para aprovação). E a mensagem Você foi REPROVADO! Estude mais... caso a média calculada seja menor que
+    6.0. -->
+</body>
+
+</html>
