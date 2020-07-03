@@ -16,45 +16,48 @@
     </h3>
     <form>
         <div class="form-group">
-            <input type="number" id="v1" value="0" class="form-control">
-        </div>
-        <div class="form-group">
-            <input type="number" id="v2" value="0" class="form-control">
-        </div>
-        <div class="form-group">
-            <input type="number" id="v3" value="0" class="form-control">
+            <input type="number" id="valor" value="0" class="form-control">
         </div>
         <div class="form-group">
             <button type="button" onclick="ordenar(
-                parseFloat(document.getElementById('v1').value),
-                parseFloat(document.getElementById('v2').value),
-                parseFloat(document.getElementById('v3').value)
-            )" class="btn"> Ordenar </button>
+                parseFloat(document.getElementById('valor').value))" class="btn"> Ordenar </button>
         </div>
     </form>
 
     <div id="saida"></div>
 
     <script>
-        function ordenar(a, b, c) {
+        var numeros = [];
+
+        function ordenar(num) {
             let copo = 0;
-            if (a > b) {
-                copo = a;
-                a = b;
-                b = copo;
+            //Inserir no vetor (array)
+            if (numeros.length == 0) {
+                numeros[0] = num
+            } else {
+                numeros[numeros.length] = num
             }
-            if (a > c) {
-                copo = c;
-                c = a;
-                a = copo;
+
+            //Verifcar a quantidade e a ordem dos elementos
+            if (numeros.length != 0) {
+                for (let x = 0; x < numeros.length; x++) {
+                    for (let y = 0; y < numeros.length; y++)
+                        if (numeros[x] < numeros[y]) {
+                            copo = numeros[x];
+                            numeros[x] = numeros[y];
+                            numeros[y] = copo
+                        }
+                }
+
             }
-            if (c < b) {
-                copo = c;
-                c = b;
-                b = copo;
+
+            console.log(numeros);
+            
+            var texto = "Em order crescente:";
+            for (let x = 0; x < numeros.length; x++) {
+                texto += " " + numeros[x]
             }
-            console.log(a,b,c);
-            saida("Em order crescente: " + a + " - " + b + " - " + c)
+            saida(texto)
         }
 
         function saida(msg) {
