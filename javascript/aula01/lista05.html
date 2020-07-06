@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <h3>5) Escreva um programa para ler o nome e as notas das duas avaliações de um aluno no semestre, calcular e
+        escrever a média semestral e a seguinte mensagem: PARABÉNS! Você foi aprovado! somente se o aluno foi aprovado
+        (considere 6.0 a média mínima para aprovação). E a mensagem Você foi REPROVADO! Estude mais... caso a média
+        calculada seja menor que 6.0. </h3>
+
+    <form>
+        <div class="form-group">
+            <input type="text" id="nome" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="number" id="nota1" min="0" max="10" value="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="number" id="nota2" min="0" max="10" value="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="resultado(
+                document.getElementById('nome').value,
+                parseFloat(document.getElementById('nota1').value),
+                parseFloat(document.getElementById('nota2').value))" class="btn btn-danger"> Resultado </button>
+        </div>
+    </form>
+
+    <div id="saida"></div>
+
+    <script>
+        var alunos = [];
+
+        function resultado(nome, nota1, nota2) {
+            let media = ((nota1 + nota2) / 2).toFixed(2);
+            let texto = "<span class='alert alert-info'>" + nome + ". Sua média : " + media + ". ";
+            if (media >= 6) {
+                texto += "PARABÉNS! Você foi aprovado!  </span>";
+            } else {
+                texto += "Você foi REPROVADO! Estude mais... </span> ";
+            }
+            //document.getElementById("saida").innerHTML = texto
+            //saida(texto);
+            addAluno({ 
+                nome: nome,
+                n1: nota1,
+                n2: nota2,
+                media: media
+            });
+            saida(texto + "<br>" + listAluno());
+        }
+
+        function addAluno(aluno) {
+            alunos[alunos.length] = aluno
+            console.log(alunos);
+        }
+
+        function listAluno() {
+            let texto = "<table class='table'>"
+            for (let x = 0; x < alunos.length; x++) {
+                texto += "<tr> <td>" + alunos[x].nome + "</td> <td>" + alunos[x].media + "</td> </tr>";
+            }
+            texto += "</table>";
+            return texto
+        }
+
+        function saida(msg) {
+            document.getElementById("saida").innerHTML = msg
+        }
+    </script>
+</body>
+
+</html>

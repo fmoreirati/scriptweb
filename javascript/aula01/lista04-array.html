@@ -11,8 +11,7 @@
 
 <body>
 
-    <h3> 4) Escreva um programa para ler 3 valores inteiros (considere que não serão lidos valores iguais) e escrevê-los
-        em ordem crescente.
+    <h3> 4) Escreva um programa para ler 3 valores inteiros (considere que não serão lidos valores iguais) e escrevê-los em ordem crescente.
     </h3>
     <form>
         <div class="form-group">
@@ -52,11 +51,12 @@
             }
 
             console.log(numeros);
-            
-            var texto = "Em order crescente:";
+
+            let texto = "Em order crescente:";
             for (let x = 0; x < numeros.length; x++) {
                 texto += " " + numeros[x]
             }
+            
             saida(texto)
         }
 
@@ -64,8 +64,6 @@
             document.getElementById("saida").innerHTML = msg;
         }
     </script>
-
-
 
     <!--
     5) Escreva um programa para ler o nome e as notas das duas avaliações de um aluno no semestre, calcular e escrever a
