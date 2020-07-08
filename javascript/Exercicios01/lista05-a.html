@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <h4>1) Escreva um programa para ler o nome e as notas das duas avaliações de um aluno no semestre, calcular e  escrever a média semestral e a seguinte mensagem: PARABÉNS! Você foi aprovado! somente se o aluno foi aprovado (considere 6.0 a média mínima para aprovação). E a mensagem Você foi REPROVADO! Estude mais... caso a  média calculada seja menor que 6.0. 
+
+       <p> a) Reescreva um programa anterior para que leia as notas das duas avaliações normais e a nota da avaliação optativa. Caso o aluno não tenha feito a optativa deve ser fornecido o valor -1. Calcular a média do semestre considerando que a prova optativa substitui a nota mais baixa entre as duas primeiras avaliações. Escrever a média e mensagens que indiquem se o aluno foi aprovado, reprovado ou está em exame, de acordo com as informações abaixo: 
+        </p>
+        <p>Aprovado : media >= 6.0 </p>
+        <p>Reprovado: media < 3.0</p>
+        <p>Exame: media >= 3.0 e media < 6.0</p> </h4>
+
+    <form>
+        <div class="form-group">
+            <label>Nome</label>
+            <input type="text" id="nome" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Nota 1</label>
+            <input type="number" id="nota1" min="0" max="10" value="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Nota 2</label>
+            <input type="number" id="nota2" min="0" max="10" value="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Nota Opcional</label>
+            <input type="number" id="opt" min="0" max="10" value="0" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="button" onclick="resultadoOpt(
+                document.getElementById('nome').value,
+                parseFloat(document.getElementById('nota1').value),
+                parseFloat(document.getElementById('nota2').value),
+                parseFloat(document.getElementById('opt').value))" class="btn btn-danger"> Resultado </button>
+        </div>
+    </form>
+
+    <div id="saida"></div>
+
+    <script src="codigo.js"></script>
+</body>
+
+</html>
+
+<!-- 
+ -->
