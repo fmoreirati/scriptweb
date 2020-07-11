@@ -10,13 +10,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 
-<body ng-app="lista5" >
+<body ng-app="">
     <h3>5) Escreva um programa para ler o nome e as notas das duas avaliações de um aluno no semestre, calcular e
         escrever a média semestral e a seguinte mensagem: PARABÉNS! Você foi aprovado! somente se o aluno foi aprovado
         (considere 6.0 a média mínima para aprovação). E a mensagem Você foi REPROVADO! Estude mais... caso a média
         calculada seja menor que 6.0. </h3>
 
-    <form ng-controller="ctrl05">
+    <form>
         <div class="form-group">
             <input type="text" ng-model="nome" class="form-control">
         </div>
@@ -26,30 +26,16 @@
         <div class="form-group">
             <input type="number" ng-model="nota2" min="0" max="10" value="0" class="form-control">
         </div>
-        <!-- <div class="form-group">
-            <button type="button" onclick="" class="btn btn-danger"> Resultado </button>
-        </div> -->
+    
     </form>
-
-    <div ng-bind="saida()">{{saida()}}</div>
-
-    <script>
-        var app = angular.module('lista5', []);
-        app.controller('ctrl05', function ($scope) {
-            $scope.nome = "";
-            $scope.nota1 = 0;
-            $scope.nota2 = 0;
-            $scope.saida = function () {
-                let media = (parseFloat($scope.nota1) + parseFloat($scope.nota2)) / 2;
-                if (media >= 6) {
-                    return "Aprovado: " + media;
-                } else {
-                    return "Reprovado: " + media;
-                }
-            }
-        })
-
-    </script>
+    <div ng-if="nome">
+        <div ng-if="((nota1 + nota2) / 2) >= 6">
+            {{ nome }}, você foi Aprovado. Sua media foi: {{(nota1 + nota2) / 2 }}
+        </div>
+        <div ng-if="((nota1 + nota2) / 2) < 3">
+            {{ nome }}, você foi Reprovado. Sua media foi: {{(nota1 + nota2) / 2 }}
+        </div>
+    </div>
 </body>
 
 </html>
