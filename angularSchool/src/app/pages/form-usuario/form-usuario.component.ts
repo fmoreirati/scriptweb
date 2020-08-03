@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario'
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-form-usuario',
@@ -11,7 +12,9 @@ export class FormUsuarioComponent implements OnInit {
   user: Usuario = new Usuario;
   confpws: string = "";
 
-  constructor() { }
+  constructor(
+    protected userService: UsuarioService
+  ) { }
 
   ngOnInit(): void {
     this.user.ativo = true;
@@ -20,9 +23,18 @@ export class FormUsuarioComponent implements OnInit {
   onsubmit(form) {
     console.log("Usuario:", this.user, "Formulario:", form);
     if (form.invalid) {
-      alert("Erro")
+      alert("Formulário invalido!");
     } else {
-      alert("Cadastrado!")
+      this.userService.add(this.user).subscribe(
+        res => {
+          alert("Cadastrado!");
+          console.log(res);          
+        },
+        err => {
+          alert("Erro ao cadastrar!");
+          console.error(err);          
+        }
+      )
     }
   }
 }
