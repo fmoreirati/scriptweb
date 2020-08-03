@@ -1,0 +1,11 @@
+{
+  "usuario": [
+    {
+      "ativo": true,
+      "nome": "Carlos",
+      "email": "carlos@gmail.com",
+      "pws": "11111111",
+      "id": 1
+    }
+  ]
+}
