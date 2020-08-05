@@ -6,6 +6,13 @@
       "email": "carlos@gmail.com",
       "pws": "11111111",
       "id": 1
+    },
+    {
+      "ativo": true,
+      "nome": "Maria ",
+      "email": "maria@email.com",
+      "pws": "1111111",
+      "id": 2
     }
   ]
 }

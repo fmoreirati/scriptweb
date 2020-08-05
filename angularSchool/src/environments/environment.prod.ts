@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  localDB:"http://localhost:3000/"
 };

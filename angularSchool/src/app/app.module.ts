@@ -10,6 +10,7 @@ import { PageHeaderComponent } from './pages/page-header/page-header.component';
 import { PageFooterComponent } from './pages/page-footer/page-footer.component';
 import { FormUsuarioComponent } from './pages/form-usuario/form-usuario.component';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
+import { ListUsuarioComponent } from './pages/list-usuario/list-usuario.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PageHomeComponent } from './pages/page-home/page-home.component';
     PageHeaderComponent,
     PageFooterComponent,
     FormUsuarioComponent,
-    PageHomeComponent
+    PageHomeComponent,
+    ListUsuarioComponent
   ],
   imports: [
     BrowserModule,

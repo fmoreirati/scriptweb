@@ -8,14 +8,24 @@ import { Usuario } from '../models/usuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  
   private conn: string = environment.localDB;
   private colletion: string = "usuario";
+
   constructor(
     private http: HttpClient,
   ) { }
 
   public add(usuario: Usuario) {
-    //http:locahost:3000/usuario
+    //http://locahost:3000/usuario
    return this.http.post(this.conn + this.colletion, usuario);
+  }
+
+  public getAll(){
+    return this.http.get<Usuario[]>(this.conn + this.colletion)
+  }
+
+  public get(id){
+    return this.http.get<Usuario>(this.conn + this.colletion +"/"+ id)
   }
 }
