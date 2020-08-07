@@ -2,29 +2,47 @@
   <form #fc="ngForm" (ngSubmit)="onsubmit(fc)">
     <div class="form-group">
       <label for="nome">Nome</label>
-      <input type="text" class="form-control" id="nome" [(ngModel)]="user.nome" placeholder="Nome" name="nome" required />
+      <input type="text" class="form-control" id="nome" [(ngModel)]="user.nome" placeholder="Nome" name="nome"
+        required />
     </div>
 
     <div class="form-group">
       <label for="email">E-mail</label>
-      <input type="email" class="form-control" id="email" [(ngModel)]="user.email" placeholder="Seu email" name="email" required />
+      <input type="email" class="form-control" id="email" [(ngModel)]="user.email" placeholder="Seu email" name="email"
+        required />
     </div>
 
-    <div class="form-group">
-      <label for="pws">Senha</label>
-      <input type="password" class="form-control" id="pws" [(ngModel)]="user.pws" placeholder="Senha" name="pws" required minlength="7" #s="ngModel" />
-      <span *ngIf="s.invalid && s.dirty" class="text-danger">Senha é muito curta!</span>
+    <div *ngIf="!key">
+      <div class="form-group">
+        <label for="pws">Senha</label>
+        <input type="password" class="form-control" id="pws" [(ngModel)]="user.pws" placeholder="Senha" name="pws"
+          required minlength="7" #s="ngModel" />
+        <span *ngIf="s.invalid && s.dirty" class="text-danger">Senha é muito curta!</span>
+      </div>
+
+      <div class="form-group">
+        <label for="confpws">Confirmação de Senha</label>
+        <input type="password" class="form-control" id="confpws" [(ngModel)]="confpws"
+          placeholder="Confirmação de Senha" name="confpws" required #c="ngModel" />
+        <span *ngIf="s.value != c.value && c.dirty" class="text-danger">Senhas diferentes!</span>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="fc.invalid || s.value != c.value">
+          Salvar
+        </button>
+        <button type="reset" class="btn btn-danger" routerLink="">
+          Cancelar
+        </button>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="confpws">Confirmação de Senha</label>
-      <input type="password" class="form-control" id="confpws" [(ngModel)]="confpws" placeholder="Confirmação de Senha" name="confpws" required #c="ngModel" />
-      <span *ngIf="s.value != c.value && c.dirty" class="text-danger">Senhas diferentes!</span>
-    </div>
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary" [disabled]="fc.invalid || s.value != c.value">
-        Enviar
+    <div class="form-group" *ngIf="key">
+      <button type="submit" class="btn btn-primary" [disabled]="fc.invalid">
+        Atualizar
+      </button>
+      <button type="reset" class="btn btn-danger" routerLink="">
+        Cancelar
       </button>
     </div>
   </form>

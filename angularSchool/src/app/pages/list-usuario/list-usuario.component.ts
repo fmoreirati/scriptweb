@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/models/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-usuario',
@@ -12,7 +13,8 @@ export class ListUsuarioComponent implements OnInit {
   public users: Usuario[] = [];//new array
 
   constructor(
-    private userService: UsuarioService
+    private userService: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,5 +29,24 @@ export class ListUsuarioComponent implements OnInit {
     )
   }
 
+  edit(id) {
+    console.log(id);
+    this.router.navigate(["formUser", id]);
+  }
+
+  remove(id) {
+    if (confirm("Deseja pagar dos dados?")) {
+      this.userService.remove(id).subscribe(
+        res=>{
+          this.atualizaLista();
+        },
+        err=>{
+          console.error(err);
+          alert("Não foi possivel apagar os dados!");
+        }
+      );
+  
+    }
+  }
 
 }

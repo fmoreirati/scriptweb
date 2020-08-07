@@ -22,10 +22,18 @@ export class UsuarioService {
   }
 
   public getAll(){
-    return this.http.get<Usuario[]>(this.conn + this.colletion)
+    return this.http.get<Usuario[]>(this.conn + this.colletion);
   }
 
   public get(id){
-    return this.http.get<Usuario>(this.conn + this.colletion +"/"+ id)
+    return this.http.get<Usuario>(this.conn + this.colletion +"/"+ id);
+  }
+
+  public update(usuario:Usuario, key:string){
+    return this.http.put(this.conn + this.colletion + "/" + key, usuario);
+  }
+
+  public remove(key){
+    return this.http.delete(this.conn + this.colletion + "/" + key);
   }
 }

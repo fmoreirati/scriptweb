@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path:"addUser",
     component: FormUsuarioComponent
+  },
+  {
+    path:"formUser/:key",
+    component: FormUsuarioComponent
   }
 ];
 

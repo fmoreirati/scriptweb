@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario'
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-usuario',
@@ -9,32 +10,61 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class FormUsuarioComponent implements OnInit {
 
-  user: Usuario = new Usuario;
-  confpws: string = "";
+  public user: Usuario = new Usuario;
+  public confpws: string = "";
+  public key: string;
 
   constructor(
-    protected userService: UsuarioService
+    protected userService: UsuarioService,
+    private activatedRouter: ActivatedRoute,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
     this.user.ativo = true;
+    this.key = this.activatedRouter.snapshot.paramMap.get("key");
+    if (this.key) {
+      this.userService.get(this.key).subscribe(
+        res => {
+          this.user = res;
+        }
+      )
+    }
+
   }
 
   onsubmit(form) {
-    console.log("Usuario:", this.user, "Formulario:", form);
+    //console.log("Usuario:", this.user, "Formulario:", form);
     if (form.invalid) {
       alert("Formulário invalido!");
     } else {
-      this.userService.add(this.user).subscribe(
-        res => {
-          alert("Cadastrado!");
-          console.log(res);          
-        },
-        err => {
-          alert("Erro ao cadastrar!");
-          console.error(err);          
-        }
-      )
+      if (this.key) {
+        this.userService.update(this.user, this.key).subscribe(
+          res => {
+            alert("Atualizado!");
+            //console.log(res);
+            this.user = new Usuario;
+            this.router.navigate([""]);
+          },
+          err => {
+            alert("Erro ao atualizar!");
+            console.error(err);
+          }
+        )
+      } else {
+        this.userService.add(this.user).subscribe(
+          res => {
+            alert("Cadastrado!");
+            //console.log(res);
+            this.user = new Usuario;
+            this.router.navigate([""]);
+          },
+          err => {
+            alert("Erro ao cadastrar!");
+            console.error(err);
+          }
+        )
+      }
     }
   }
 }
