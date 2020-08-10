@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ListUsuarioComponent implements OnInit {
 
-  public users: Usuario[] = [];//new array
+  public users: Usuario[];//new array
 
   constructor(
     private userService: UsuarioService,
@@ -22,9 +22,9 @@ export class ListUsuarioComponent implements OnInit {
   }
 
   atualizaLista() {
-    this.userService.getAll().subscribe(
+    this.userService.getAllFire().subscribe(
       res => {
-        this.users = res;
+        this.users = res
       }
     )
   }

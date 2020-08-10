@@ -52,7 +52,7 @@ export class FormUsuarioComponent implements OnInit {
           }
         )
       } else {
-        this.userService.add(this.user).subscribe(
+        this.userService.addFire(this.user).then(
           res => {
             alert("Cadastrado!");
             //console.log(res);
