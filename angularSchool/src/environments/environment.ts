@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  localDB:"http://localhost:3000/"
+  localDB:"http://localhost:3000/",
+   firebaseConfig:{
+    apiKey: "AIzaSyAex3pXTZlWxYZWo1BDKoyJSgfWjkvgDhQ",
+    authDomain: "angularschool-87884.firebaseapp.com",
+    databaseURL: "https://angularschool-87884.firebaseio.com",
+    projectId: "angularschool-87884",
+    storageBucket: "angularschool-87884.appspot.com",
+    messagingSenderId: "717054971093",
+    appId: "1:717054971093:web:97345d688421ee3757265c",
+    measurementId: "G-HGXRJMDBPW"
+  }
 };
 
 /*

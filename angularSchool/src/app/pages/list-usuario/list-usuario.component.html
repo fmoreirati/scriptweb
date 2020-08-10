@@ -13,20 +13,17 @@
                 </th>
             </tr>
             <tr *ngFor="let u of users">
-                <td>{{ u.id }}</td>
+                <td>{{ u.key }}</td>
                 <td>{{ u.nome }}</td>
                 <td>{{ u.email }}</td>
                 <td>
-                    <i class="fa fa-edit" style="font-size:24px" (click)="edit(u.id)"></i> 
+                    <i class="fa fa-edit" style="font-size:24px" (click)="edit(u.key)"></i> 
                 </td>
                 <td>
-                    <i class="fa fa-remove" style="font-size:24px" (click)="remove(u.id)"></i>
+                    <i class="fa fa-remove" style="font-size:24px" (click)="remove(u.key)"></i>
                 </td>
             </tr>
         </table>
-    </div>
-    <div>
-    oi
     </div>
 
 </section>
