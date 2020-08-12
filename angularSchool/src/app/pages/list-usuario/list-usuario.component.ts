@@ -22,7 +22,7 @@ export class ListUsuarioComponent implements OnInit {
   }
 
   atualizaLista() {
-    this.userService.getAllFire().subscribe(
+    this.userService.listAllFire().subscribe(
       res => {
         this.users = res
       }
@@ -34,9 +34,9 @@ export class ListUsuarioComponent implements OnInit {
     this.router.navigate(["formUser", id]);
   }
 
-  remove(id) {
+  remove(id, ativo) {
     if (confirm("Deseja pagar dos dados?")) {
-      this.userService.remove(id).subscribe(
+      this.userService.removeFire(id, ativo).then(
         res=>{
           this.atualizaLista();
         },
