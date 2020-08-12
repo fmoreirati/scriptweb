@@ -16,6 +16,9 @@ import { ListUsuarioComponent } from './pages/list-usuario/list-usuario.componen
 import{ AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './pages/login/login.component'
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     PageFooterComponent,
     FormUsuarioComponent,
     PageHomeComponent,
-    ListUsuarioComponent
+    ListUsuarioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     FormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

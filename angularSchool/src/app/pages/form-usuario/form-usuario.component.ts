@@ -24,7 +24,7 @@ export class FormUsuarioComponent implements OnInit {
     this.user.ativo = true;
     this.key = this.activatedRouter.snapshot.paramMap.get("key");
     if (this.key) {
-      this.userService.get(this.key).subscribe(
+      this.userService.getFire(this.key).subscribe(
         res => {
           this.user = res;
         }
@@ -39,7 +39,7 @@ export class FormUsuarioComponent implements OnInit {
       alert("Formulário invalido!");
     } else {
       if (this.key) {
-        this.userService.update(this.user, this.key).subscribe(
+        this.userService.updateFire(this.user, this.key).then(
           res => {
             alert("Atualizado!");
             //console.log(res);
